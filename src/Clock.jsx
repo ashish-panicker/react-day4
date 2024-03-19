@@ -1,7 +1,6 @@
 import React from 'react'
 
 class Clock extends React.Component {
-    
   constructor(props) {
     // properties are initialized via the constructor
     super(props)
@@ -15,6 +14,11 @@ class Clock extends React.Component {
   componentDidMount() {
     console.log('component did mount')
     this.timerId = setInterval(() => this.tick(), 1000)
+  }
+
+  componentDidUpdate() {
+    console.log('Component updated')
+    console.log(this.state)
   }
 
   componentWillUnmount() {
