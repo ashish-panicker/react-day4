@@ -5,7 +5,12 @@ const DigitalClock = () => {
 
   React.useEffect(() => {
     const timer = setInterval(() => setDate({ val: new Date() }), 1000)
-  }, [])
+
+    // Cleanup function to clear interval when component unmounts
+    return () => {
+      clearInterval(timer)
+    }
+  }, []) // Empty dependency array means effect runs only once after initial render
 
   return (
     <div>
